@@ -7,9 +7,13 @@ x,y=45,20
 
 def sol():
     for  i in range(16):
-        pyxel.blt(16*i,64,0,0,56,16,16,0)
+        pyxel.blt(16*i,48,0,0,56,64,64,0)
 
-
+def cloud():
+    for  i in range(16):
+        if i %2==0:
+            pyxel.blt(16*i,48,0,0,100,64,64,0)
+       
     
 
 class App:
@@ -28,14 +32,16 @@ class App:
             pyxel.quit()
         global x,y
         if pyxel.btn(pyxel.KEY_RIGHT):
-            x=x+1
+            x=x+2
         elif pyxel.btn(pyxel.KEY_LEFT):
-            x=x-1
+            x=x-2
 
         elif pyxel.btn(pyxel.KEY_DOWN) and pyxel.pget(x+8,y+24)!=11:
-            y=y+1
+            y=y+2
         elif pyxel.btn(pyxel.KEY_UP):
-            y=y-1
+            y=y-2
+            
+            
     
     
     def draw(self):
@@ -44,11 +50,11 @@ class App:
         #affiche le texte avec la couleur 2 au point (55,41)
         pyxel.blt(x,y,0,0,29,32,26,7)
         sol()
+        cloud()
 
     
     
        
 App()
-
 
 
